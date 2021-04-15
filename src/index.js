@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4";
 const breedUrl = "https://dog.ceo/api/breeds/list/all";
 let options = 'hello';
-
 let breeds = [];
     
 function fetchImage(){
@@ -57,27 +56,39 @@ function changeDropDown() {
         let value = e.target.value
         // console.log(e.target.value);
         if(value === "a"){
-            filterBreed();
+            filterBreed("a");
         }else if(value === "b"){
-            filterBreed();
+            filterBreed("b");
         }else if(value === "c"){
-            filterBreed();
+            filterBreed("c");
         }else if(value === "d"){
-            filterBreed();
+            filterBreed("d");
         }
     });
 }
 
 
-function updateBreed(breeds) {
+function updateBreed(breed) {
+    console.log(breed);
     const ul = document.querySelector('#dog-breeds');
-    breeds.forEach(breed => renderBreed(breed));
-  
+    const lis = ul.getElementsByTagName('li');
+    let child = ul.lastElementChild;
+    while (child) {
+        child.remove();
+        child = ul.lastElementChild;
+    }
+    // for(let el of lis){
+    //     console.log(el);
+    //     el.remove();
+    // }
+    breed.forEach(b => renderBreed(b));
+    
 }
 
 function filterBreed(letter) {
     updateBreed(breeds.filter(breed => breed.startsWith(letter)))
 }
+
 
 
 

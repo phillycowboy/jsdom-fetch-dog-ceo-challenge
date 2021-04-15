@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4";
 const breedUrl = "https://dog.ceo/api/breeds/list/all";
+// const dogList = document.getElementsByTagName('li');
+// const dropDown = document.querySelectorAll('#breed-dropdown');
+const options = document.getElementsByTagName('option')
 let breeds = [];
     
 function fetchImage(){
@@ -21,19 +24,37 @@ function renderImage(image) {
 
 function fetchBreed() {
     return fetch(breedUrl).then((res) => res.json())
-        .then((json) => {json.message.forEach(breed => renderBreed(breed))
-        // breeds = Object.keys(json.message)
-        // breeds.forEach(breed => renderBreed(breed))
-        })
-    }
+        .then((json) => {
+            breeds = Object.keys(json.message)
+            breeds.forEach(breed => renderBreed(breed))
+        
+        });
+}
 
 function renderBreed(breed) {
     const li = document.createElement('li');
     const ul = document.querySelector('#dog-breeds');
     li.innerText = breed;
     ul.append(li);
+    li.addEventListener('click', () => {
+        li.style.color = 'blue';
+        // if(li.style.color === 'blue'){
+        //     li.style.color;
+        // }
+    })
 }
-    
+
+// dogList.addEventListener('click', () =>{
+//     li.style.color = 'blue';
+// })
+
+// dropDown.addEventListener('click', () => {
+//     alert('hi!');
+// })
+
+options.addEventListener('click', () => {
+    alert('hi!');
+})
 
 
 

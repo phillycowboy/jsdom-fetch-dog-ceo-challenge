@@ -54,8 +54,17 @@ function renderBreed(breed) {
 // };
 function changeDropDown() {
     options.addEventListener('change', (e) => {
-        filterBreed();
-        console.log(e);
+        let value = e.target.value
+        // console.log(e.target.value);
+        if(value === "a"){
+            filterBreed();
+        }else if(value === "b"){
+            filterBreed();
+        }else if(value === "c"){
+            filterBreed();
+        }else if(value === "d"){
+            filterBreed();
+        }
     });
 }
 
@@ -63,6 +72,7 @@ function changeDropDown() {
 function updateBreed(breeds) {
     const ul = document.querySelector('#dog-breeds');
     breeds.forEach(breed => renderBreed(breed));
+  
 }
 
 function filterBreed(letter) {

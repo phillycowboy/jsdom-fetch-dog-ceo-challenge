@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4";
 const breedUrl = "https://dog.ceo/api/breeds/list/all";
-// const dogList = document.getElementsByTagName('li');
-// const dropDown = document.querySelectorAll('#breed-dropdown');
 const options = document.getElementsByTagName('option')
 let breeds = [];
     
@@ -44,13 +42,6 @@ function renderBreed(breed) {
     })
 }
 
-// dogList.addEventListener('click', () =>{
-//     li.style.color = 'blue';
-// })
-
-// dropDown.addEventListener('click', () => {
-//     alert('hi!');
-// })
 
 options.addEventListener('click', () => {
     alert('hi!');
